@@ -1,0 +1,61 @@
+.t{
+  // Theme Royale
+  &-royale{
+    .adminsidebar{
+      background: $theme-royale-gradient;
+    }
+    .adminmain a{
+      color: $theme-royale-color;
+    }
+    .button--panel{
+      background: $theme-royale-color;
+      border: solid thin $theme-royale-color;
+      &:hover{
+        background: darken($theme-royale-color, 5%);
+      }
+    }
+    .accordion--settings .accordion__header{
+      background: $theme-royale-gradient;
+    }
+  }
+
+  // Theme Eden
+  &-eden{
+    .adminsidebar{
+      background: $theme-eden-color;
+    }
+    .adminmain a{
+      color: $theme-eden-color;
+    }
+    .button--panel{
+      background: $theme-eden-color;
+      border: solid thin $theme-eden-color;
+      &:hover{
+        background: darken($theme-eden-color, 5%);
+      }
+    }
+    .accordion--settings .accordion__header{
+      background: $theme-eden-color;
+    }
+  }
+
+  // Theme Dark
+  &-dark{
+    .adminsidebar{
+      background: $theme-dark-color;
+    }
+    .adminmain a{
+      color: $theme-dark-color;
+    }
+    .button--panel{
+      background: $theme-dark-color;
+      border: solid thin $theme-dark-color;
+      &:hover{
+        background: darken($theme-dark-color, 5%);
+      }
+    }
+    .accordion--settings .accordion__header{
+      background: $theme-dark-color;
+    }
+  }
+}

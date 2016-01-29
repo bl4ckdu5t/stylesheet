@@ -1,0 +1,395 @@
+/*====================================*/
+// Styles here are for the admin panel area
+@import 'variables',
+  'mixins',
+  'animations';
+/*====================================*/
+
+*:focus{
+  outline-color: #777;
+  outline-width: 1px;
+}
+/*-----------------------------------------*\
+  Authbox (Custom for admin authentication)
+\*-----------------------------------------*/
+.authbox{
+  width: 90%;
+  max-width: 300px;
+  margin: 100px auto;
+  color: #444;
+  &__avatar{
+    width: 6em;
+    height: 6em;
+    margin: 10px auto;
+    padding: 10px;
+    border: solid 2px #aaa;
+    border-radius: 50%;
+    text-align: center;
+    .icon{
+      width: 4em;
+      height: 4em;
+      fill: #aaa;
+    }
+  }
+  &__set{
+    margin: 20px 0;
+    padding: 20px 20px 50px;
+    background: rgba($white, .5);
+    box-shadow: 0 0 2px #aaa;
+    .form__input{
+      height: 40px;
+      background: rgba($white, .05);
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+  &__name{
+    text-align: center;
+    color: rgba($black, .5);
+  }
+  a{ color: $theme-default-color; }
+}
+/*-----------------------------------------*\
+  Adminsidebar (.adminsidebar)
+\*-----------------------------------------*/
+.adminsidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100%;
+  padding: 20px 0;
+  background: $theme-default-color;
+  text-align: center;
+  transition: .3s width ease-in-out;
+  overflow: hidden;
+  & ~ .adminmain{
+    padding-left: 70px;
+  }
+  @include breakpoint($breakpoint-tablet-portrait){
+    &:hover, &.is-fixed-sidebar{
+      width: 180px;
+      & ~ .adminmain{
+        padding-left: 180px;
+      }
+      .adminsidebar__nav__caption{
+        &::after{
+          content: attr(title);
+          display: inline;
+          vertical-align: bottom;
+          padding-left: 15px;
+        }
+      }
+      .support{
+        margin: 0 10px;
+      }
+      .adminsidebar__nav{
+        padding: 0 20px;
+        text-align: left;
+      }
+      .adminsidebar__logo span{
+        top: -50px;
+        transform: scale(0);
+      }
+      .adminsidebar__logo h2{
+        width: auto;
+      }
+    }
+  }
+  &__logo{
+    span{
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      padding: 12.5px 12px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: rgba(darken($white, 20%), .5);
+      color: rgba(darken($white, 5%), .9);
+      font-weight: bolder;
+      text-shadow: 0 1px 1px rgba($black, .5);
+      transition: .3s ease-out;
+    }
+    h2{
+      width: 0;
+      margin: 10px 0;
+      color: rgba($white, .5);
+      font-weight: 300;
+      transition: 3s width ease-in;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+  &__support{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    .pinsidebar{
+      position: absolute;
+      bottom: 10px;
+      left: 150px;
+      width: 1.5em;
+      height: 1.5em;
+      fill: rgba(darken($white, 10%), .8);
+      cursor: pointer;
+    }
+  }
+  &__nav{
+    margin: 30px 0;
+    a{
+      display: block;
+      padding: 10px;
+      border-bottom: solid thin rgba($white, .08);
+      color: rgba($white, .5);
+      white-space: nowrap;
+      @include breakpoint($breakpoint-tablet-portrait){
+        padding: 20px 10px;
+      }
+      &:hover, &.is-active-page{
+        text-decoration: none;
+        color: $white;
+      }
+    }
+    .icon{
+      width: 2em;
+      height: 2em;
+    }
+  }
+}
+/*-----------------------------------------*\
+  Adminmain (.adminmain)
+\*-----------------------------------------*/
+.adminmain{
+  transition: .3s padding ease-in-out;
+  color: #555;
+  a{ color: #888; }
+  &__header{
+    position: relative;
+    padding: 15px;
+    border-bottom: solid thin darken($white, 20%);
+    background: rgba($color-brand-6, .8);
+  }
+  &__search{
+    width:  100%;
+    height: 35px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 2px;
+    background: darken($white, 20%);
+    font-size: 1.8rem;
+    font-weight: lighter;
+    &:focus{
+      outline: none;
+    }
+  }
+  &__usermail{
+    display: none;
+    font-size: 1.2rem;
+    @include breakpoint($breakpoint-iphone-landscape){
+      display: inline;
+    }
+  }
+  &__avatar{
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    border-radius: 50%;
+  }
+  &__account{
+    float: right;
+    padding-right: 50px;
+    @include breakpoint($breakpoint-iphone-landscape){
+      padding-right: 80px;
+    }
+  }
+  &__profile-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    height: 100%;
+    border-left: solid thin darken($white, 20%);
+    cursor: pointer;
+    .icon{
+      fill: darken($white, 50%);
+    }
+    &__nav{
+      position: absolute;
+      top: 75px;
+      right: 10px;
+      z-index: 100;
+      list-style-type: none;
+      width: 200px;
+      margin: 0;
+      padding: 15px 0;
+      background: $white;
+      box-shadow: 0 1px 2px darken($white, 10%);
+      cursor: default;
+      &::after{
+        content: '';
+        position: absolute;
+        top: -7px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+        background: $white;
+        transform: rotate(45deg);
+      }
+      a{
+        display: block;
+        padding: 10px;
+        color: lighten($black, 30%);
+        &:hover{
+          text-decoration: none;
+          background: darken($white, 20%);
+        }
+      }
+    }
+  }
+  &__content{
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  &__page-title{
+    margin: 0;
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+  &__page-controls{
+    padding-top: 10px;
+    @include breakpoint($breakpoint-tablet-portrait){
+      float: right;
+      padding: 0;
+    }
+  }
+}
+/*-----------------------------------------*\
+  AdminSettings (.adminsettings)
+\*-----------------------------------------*/
+.adminsettings{
+  &__avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  &__field{
+    width: 100%;
+    @include breakpoint($breakpoint-tablet-portrait){
+      width: 300px;
+    }
+  }
+  &__user-entry{
+    position: relative;
+    left: -10px;
+    width: calc(100% + 20px);
+    margin-top: 10px;
+    padding: 10px;
+    background: #eee;
+    &::after{
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 20px;
+      @include breakpoint($breakpoint-tablet-portrait){
+        left: auto;
+        right: 10px;
+      }
+      width: 20px;
+      height: 20px;
+      background: #eee;
+      transform: rotate(45deg);
+    }
+  }
+}
+/*-----------------------------------------*\
+  Dashboard (.dashboard)
+\*-----------------------------------------*/
+.dashboard{
+  margin-top: 20px;
+  &__widget{
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+    &:hover{
+      box-shadow: 0 0 4px lighten($black, 60%);
+    }
+    &__topview{
+      height: 200px;
+      background: $white;
+    }
+    &__stat{
+      height: 100px;
+      background: rgba($white, .6);
+      box-shadow: 0 1px 2px darken($white, 15%) inset;
+      text-align: center;
+      .grid-4{
+        padding: 10px;
+      }
+      strong{
+        display: block;
+        font-size: 3rem;
+        font-weight: lighter;
+      }
+      small{
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        color: lighten($black, 70%);
+      }
+    }
+    &--add{
+      padding: 100px 20px;
+      background: rgba($white, .4);
+      color: rgba($black, .4);
+      text-align: center;
+      cursor: pointer;
+      .icon{
+        width: 5em;
+        height: 5em;
+      }
+    }
+  }
+}
+.support{
+  display: block;
+  width: 3em;
+  height: 3em;
+  margin: 0 auto;
+  padding: 6px;
+  border-radius: 50%;
+  background: rgba(darken($white, 20%), .5);
+  transition: .3s animation ease-in-out;
+  cursor: pointer;
+  .icon{    width: 2em;
+    height: 2em;
+    fill: rgba(darken($white, 10%), .7);
+  }
+  &:hover{
+    animation: supportBounce 1s .4s;
+  }
+}
+.upload-thumb{
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  border: solid 2px #ccc;
+  img{
+    width: 100%;
+    max-height: 100px;
+  }
+}
+/*------------------------------------------*\
+Themes
+\*------------------------------------------*/
+@import 'themes';

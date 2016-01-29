@@ -1,0 +1,20 @@
+@keyframes supportBounce{
+  0%{
+    margin-bottom: 25px;
+  }
+  25%{
+    margin-bottom: 0
+  }
+  50%{
+    margin-bottom: 15px;
+  }
+  75%{
+    margin-bottom: 0;
+  }
+  90%{
+    margin-bottom: 10px
+  }
+  100%{
+    margin-bottom: 0;
+  }
+}

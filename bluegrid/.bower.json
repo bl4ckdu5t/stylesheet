@@ -1,0 +1,40 @@
+{
+  "name": "bluegrid",
+  "description": "A simple, responsive, and customizable grid based on the flex property",
+  "main": [
+    "sass/_bluegrid.scss",
+    "dist/bluegrid.min.css"
+  ],
+  "authors": [
+    "Colby Williams (colby@colbycheeze.com)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "grid",
+    "sass",
+    "scss",
+    "semantic",
+    "flexbox"
+  ],
+  "homepage": "https://github.com/colbycheeze/bluegrid",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "build",
+    "src",
+    "package.json",
+    "gulpfile.babel.js"
+  ],
+  "version": "0.3.2",
+  "_release": "0.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.2",
+    "commit": "27b38a5db151f9ce2c2a407b6a16c055a3224d48"
+  },
+  "_source": "git://github.com/colbycheeze/bluegrid.git",
+  "_target": "~0.3.2",
+  "_originalSource": "bluegrid",
+  "_direct": true
+}
